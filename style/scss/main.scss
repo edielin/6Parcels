@@ -1,0 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700);
+
+@font-face {
+	font-family: "Raleway";
+	src: url("../fonts/Raleway-Thin.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 200;
+	text-rendering: optimizeLegibility;
+}
+@font-face {
+	font-family: "Raleway";
+	src: url("../fonts/Raleway-Light.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 300;
+	text-rendering: optimizeLegibility;
+}
+@font-face {
+	font-family: "Raleway";
+	src: url("../fonts/Raleway-Regular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 400;
+	text-rendering: optimizeLegibility;
+}
+@font-face {
+	font-family: "Raleway";
+	src: url("../fonts/Raleway-Medium.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 500;
+	text-rendering: optimizeLegibility;
+}
+@font-face {
+	font-family: "Raleway";
+	src: url("../fonts/Raleway-Bold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 600;
+	text-rendering: optimizeLegibility;
+}
+
+$font_family1: Raleway;
+$font_family2: roboto, arial;
+
+$main_green1: #0a5a6a;
+$main_green2: #a0d6cc;
+$main_yellow: #f9bb22;
+$warn_red: #e33030;
+$success_green: #6aa93d;
+
+@for $i from 1 to 7 {
+	h#{$i} {
+		margin: 0;
+	}
+}
+
+::selection {
+	color: $main_yellow;
+	background-color: $main_green1;
+}
+
+body {
+	background-color: #fafafa;
+	color: #333;
+	font-size: 16px;
+	line-height: 1.35em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	width: 100%;
+	overflow-x: hidden;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}

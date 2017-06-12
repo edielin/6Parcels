@@ -1,0 +1,90 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700);
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Thin.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
+}
+@font-face {
+  font-family: "Raleway";
+  src: url("../fonts/Raleway-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  text-rendering: optimizeLegibility;
+}
+/* line 49, ../scss/main.scss */
+h1 {
+  margin: 0;
+}
+
+/* line 49, ../scss/main.scss */
+h2 {
+  margin: 0;
+}
+
+/* line 49, ../scss/main.scss */
+h3 {
+  margin: 0;
+}
+
+/* line 49, ../scss/main.scss */
+h4 {
+  margin: 0;
+}
+
+/* line 49, ../scss/main.scss */
+h5 {
+  margin: 0;
+}
+
+/* line 49, ../scss/main.scss */
+h6 {
+  margin: 0;
+}
+
+/* line 54, ../scss/main.scss */
+::selection {
+  color: #f9bb22;
+  background-color: #0a5a6a;
+}
+
+/* line 59, ../scss/main.scss */
+body {
+  background-color: #fafafa;
+  color: #333;
+  font-size: 16px;
+  line-height: 1.35em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* line 70, ../scss/main.scss */
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
