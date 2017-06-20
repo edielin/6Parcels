@@ -77,7 +77,7 @@ $font_family1: Raleway;
 $font_family2: roboto, arial;
 $font_size: 16;
 
-.f_f1 { font-family: $font_family1 !important };
+.f_f1 { font-family: $font_family1 !important }
 .f_f2 { font-family: $font_family2 !important }
 
 $main_green1: #0a5a6a;
@@ -88,8 +88,16 @@ $warn_red: #e33030;
 $warn_red_dark: #9d1515;
 $success_green: #6aa93d;
 
-.fc_yellow {  color: $main_yellow }
+.fc_yellow {  color: $main_yellow !important }
 
+
+$bg_linear_light: linear-gradient(to bottom, rgba(226, 243, 249, 0) 0%, rgba(226, 243, 249, 1) 100%);
+$bg_linear_dark: linear-gradient(to bottom, rgba(10, 90, 106, 1) 0%, rgba(10, 90, 106, 0.55) 100%); 
+$bg_linear_yellow: linear-gradient(to bottom, rgba(250, 251, 241, 0) 0%, rgba(250, 251, 241, 1) 100%);
+
+.bg_light_linear { background-image: $bg_linear_light }
+.bg_dark_linear { background-image: $bg_linear_dark }
+.bg_yellow_linear { background-image: $bg_linear_yellow }
 
 @for $i from 1 to 7 {
 	h#{$i} {
@@ -125,6 +133,11 @@ ul, li, p {
 }
 
 .relative { position: relative; }
+
+#wrapper {
+	position: relative;
+	z-index: 5;
+}
 
 #header {
 	position: fixed;
@@ -227,7 +240,7 @@ ul, li, p {
 			}
 		}
 
-		.nav_ul li.action a.page_link {
+		.nav_ul li.active a.page_link {
 			color: $main_yellow;
 			&:after {
 				bottom: -20px;
@@ -386,6 +399,7 @@ ul, li, p {
 
 section { 
 	padding: 50px 0;
+	background-color: #fafafa;
 	.sub_title {
 		font-size: 30px;
 		font-family: $font_family1;
@@ -399,11 +413,10 @@ section {
 				bottom: 0;
 				width: 20px;
 				height: 3px;
-				background-color: $main_green1;
-				opacity: .65;
+				background-color: $main_green2;
 			}
 	}
-	.txt { margin-bottom: 15px; opacity: 0.9; }
+	.txt { margin-bottom: 15px; opacity: 0.9; font-size: 18px; }
 	.icons3_block {
 		font-size: 0;
 		margin: 25px auto 0px;
@@ -439,12 +452,19 @@ section {
 	}
 }
 
-%header_margin_t80 { margin-top: 80px; }
+.fixed_section1 { 
+	position: fixed !important;
+	top: 80px !important;
+	left: 0; right: 0; margin:auto;
+}
 
 #home_landing {
-	@extend %header_margin_t80;
+	@extend .fixed_section1;
+	left: 0;right: 0;margin: auto;
+	z-index: 2;
+
 	padding-bottom: 0;
-	background-image: linear-gradient(to bottom, rgba(226, 243, 249, 0) 0%, rgba(226, 243, 249, 1) 100%);
+	background-image: $bg_linear_light;
 	
 	.content_block {
 		position: relative;
@@ -458,6 +478,7 @@ section {
 		.name { font-size: ($font_size+2)+px }
 		.title {
 			color: $main_green1;
+			text-transform: uppercase;
 			position: relative;
 			padding-bottom: 10px;
 			margin-bottom: 15px;
@@ -471,7 +492,6 @@ section {
 				opacity: .65;
 			}
 		}
-		.txt { font-size: 18px; }
 		.counting_block {
 			margin: 15px 0;
 			.counting_txt{
@@ -523,6 +543,7 @@ section {
 }
 
 #home_features_1, #home_features_2{
+	background-color: #fafafa;
 	background-image: linear-gradient(to bottom, rgba(250, 251, 241, 0) 0%, rgba(250, 251, 241, .5) 100%);
 	.section_img {
 		display: inline-block;
@@ -542,7 +563,7 @@ section {
 #home_features_2 { 
 	padding: 0 0 35px;
 	margin-bottom: -1px;
-	@include pc_lg_media { padding-bottom: 10px}
+	@include pc_lg_media { padding-bottom: 10px }
 	background-image: linear-gradient(to bottom, rgba(250, 251, 241, .5) 0%, rgba(226, 243, 249, 1) 100%); 
 	
 	.content_block { margin-top: 0;}
@@ -557,8 +578,8 @@ section {
 }
 
 #mobile_block {
+	background-color: transparent;
 	padding-top: 60px;
-	padding-bottom: 40px;
 	.sub_title { 
 		color: $main_green1;
 		text-shadow: 0 0 3px rgba(255, 255, 255, 1);
@@ -566,6 +587,12 @@ section {
 		&:after { 
 			left: 0; right: 0; margin: auto; 
 		}
+	}
+	.txt {
+		color: #fff;
+		max-width: 700px;
+		margin: auto;
+		text-shadow: 0 0 3px rgba(0, 0, 0, .65);
 	}
 	.show_app_block {
 		margin-top: 50px;
@@ -591,7 +618,7 @@ section {
 
 #testimonials_block {
 	padding-bottom: 35px;
-	background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(226, 243, 249, 1) 100%);
+	background-image: $bg_linear_light;
 	.title_block {
 		margin-top: 35px;
 		@include phone_xs_media { 
@@ -600,7 +627,7 @@ section {
 			margin-bottom: 30px; 
 		}
 		.sub_title {
-			@include pc_lg_media { width: 300px ;}
+			@include pc_lg_media { width: 300px ; }
 			margin-bottom: 0;
 			&:after { opacity: 0 }
 			i.fa-heart {
@@ -662,7 +689,7 @@ section {
 
 #leave_mail_block {
 	padding-bottom: 65px;
-	background-image: linear-gradient(to bottom, rgba(10, 90, 106, 0.55) 0%, rgba(10, 90, 106, 1) 100%); 
+	background-image: $bg_linear_dark; 
 	.sub_title {
 		color: #fff;
 		text-shadow: 0 0 5px rgba(0, 0, 0, .1);
@@ -723,6 +750,424 @@ section {
 		}
 	}
 }
+
+%center_center {
+	position: absolute;
+	top: 0;left: 0;right: 0;bottom: 0; margin: auto;
+}
+#downlaod_app {
+	padding-top: 60px;
+	position: relative;
+	p {
+		@extend %center_center;
+		font-family: $font_family1;
+		font-weight: 600;
+		z-index: 1;
+		font-size: 100px;
+		height: 1em;
+		line-height: 1em;
+		letter-spacing: 5px;
+		opacity: .035;
+		white-space: nowrap;
+		@include phone_xs_media { 
+			font-size: 60px ;
+			letter-spacing: 0px;
+		}
+	}
+	img {
+		position: relative;
+		z-index: 2;
+		width: 220px;
+		transition: .1s;
+		&:hover {
+			transform: scale(1.15);
+		}
+	}
+}
+
+.page_header {
+	font-family: $font_family1;
+	padding-bottom: 40px;
+	background: #fafafa url(../../images/feature_icon_bg_color.png) center center repeat;
+	.name, .txt {
+		font-size: 18px;
+	}
+	.txt {
+		margin-bottom: 0;
+	}
+	.sub_title { 
+		text-transform: uppercase;
+		font-size: 36px;
+		color: $main_green1;
+		&:after { 
+			right: 0 ;
+			background-color: $main_green1;
+			opacity: .65;
+		}
+	}
+	@include phone_xxs_media { 
+		padding-top: 30px;
+		padding-bottom: 30px; 
+	}
+
+}
+
+#feature_header {
+	@include phone_xs_media { padding-bottom: 80px; }
+}
+
+#feature_dashboard {
+	background-color: #fff;
+	background-image: linear-gradient(to bottom, rgba(250, 251, 241, 0) 0%, rgba(250, 251, 241, 0.5) 100%);
+	padding-bottom: 0px;
+
+	.laptop_img {
+		margin-top: -200px;
+		@include phone_xs_media { margin-top: -100px; }
+	}
+	.sub_title {
+		&:after { left: 0; } 
+	}
+	.txt { margin-bottom: 0; }
+	.txt_block {
+		@include phone_xs_media { margin-top: 10px; }
+	}
+}
+
+#feature_proof {
+	padding-bottom: 10px;
+	background-color: #fff;
+	background-image: linear-gradient(to bottom, rgba(250, 251, 241, 0.5) 0%, #e2f3f9 100%);
+	.sub_title { 
+		&:after { left: 0 ;}
+	}
+	.txt_block {
+		@include pc_lg_media { margin-top: 60px; }
+	}
+}
+
+#pricing_plans {
+	@include pc_lg_media {
+		position: relative;
+		padding-bottom: 165px;
+	}
+	.sub_title, .txt { color: #fff }
+	.sub_title { 
+		&:after { left: 0; right: 0; margin: auto; }
+	}
+	.txt_good {
+		color: #fff;
+		font-size: 0;
+		font-family: $font_family1;
+		opacity: .65;
+		p {
+			font-size: 17px;
+			display: inline-block;
+			width: 33.3333333%;
+			text-align: center;
+			i.fa {
+				opacity: .85;
+				color: $main_green2;
+			}
+		}
+	}
+	.plans_block {
+		@include pc_lg_media { 
+			position: absolute;
+			max-width: 1170px;
+			top: 220px;
+			left: 0;right: 0; margin: auto;
+			background-color: #fafafa; 
+			border-radius: 4px;
+			box-shadow: 0 7px 16px 0 rgba(57,76,93,0.13);
+		}
+		
+		.plan_box {
+			position: relative;
+			z-index: 2;
+			text-align: center;
+			border-radius: 4px;
+			background-color: #fafafa;
+			padding: 30px 20px;
+			margin-left: -15px;
+			margin-right: -15px;
+			@include phone_xs_media { 
+				max-width: 320px;
+				margin: 15px auto;
+			}
+			&.border_left {
+				border-left: 1px solid #e6eaef;
+				@include phone_xs_media { border: none }
+			}
+			.plan_name {
+				color: $main_green1;
+				font-size: 23px;
+				text-transform: uppercase;
+				font-family: $font_family1;
+				font-weight: 600;
+			}
+			.price_box {
+				margin: 20px auto 15px;
+				color: #529be0;
+				font-size: 47px;
+				font-weight: 600;
+				.currency {
+					font-size: 16px;
+					vertical-align: super;
+				}
+				.unit {
+					font-size: 19px;
+					font-weight: 400;
+				}
+			}
+			.suitable {
+				color: #d7e1e9;
+				font-size: 13px;
+				position: relative;
+				text-transform: uppercase;
+				padding-bottom: 3px;
+				margin-bottom: 10px;
+				&:after {
+					content: '';
+					position: absolute;
+					left: 0; right: 0;
+					bottom: 0;
+					margin: auto;
+					width: 10px;
+					height: 2px;
+					background-color: #d7e1e9;
+				}
+			}
+			.condition {
+				font-size: 14px;				
+				color: #434e5a;
+				line-height: 1.35em;
+				margin-bottom: 20px;
+			}
+
+			&.popular {
+				overflow: hidden;
+				&:after {
+					content: 'POPULAR!';
+					width: 300px;
+					font-weight: 600;
+					letter-spacing: 1px;
+					text-align: center;
+					position: absolute;
+					top: 30px; right: -110px;
+					color: #333;
+					font-family: $font_family1;
+					font-size: 12px;
+					background-color: #30b5b5;
+					color: #fff;
+					transform: rotate(45deg);
+				}
+					z-index: 3;
+					box-shadow: 0 7px 17px 0 rgba(57,76,93,0.13);
+					transform: scale(1.05);
+				@include phone_xs_media {	
+					box-shadow: none;
+					transform: scale(1);
+				}
+				.price_box {
+					color: #30b5b5;
+				}
+			}
+		}
+
+		.choose_plan_btn {
+			border-radius: 50px;
+			border: 2px solid $main_green1;
+			background-color: $main_green1;
+			font-family: $font_family1;
+			color: #fff;
+			font-weight: 500;
+			opacity: .85;
+			line-height: 32px;
+			width: 150px;
+    		transition: .1s;
+    		font-size: 15px;
+    		&.free {
+    			border-color: #d7e1e9;
+    			background-color: #fafafa;
+    			color: $main_green1;
+    			font-weight: 600;
+    		}
+    		&:hover {
+    			color: #fff;
+    			background-color: #0b6375;
+    			border: 2px solid #0b6375;
+    			border-bottom: 2px solid #04282f;
+    			font-weight: 500;
+    		}
+    		&.popular {
+    			background-color: #30b5b5;
+    			border-color: #30b5b5;
+    			opacity: 1;
+    			&:hover {
+    				background-color: #31b9b9;
+    				border-color: #31b9b9;
+    				border-bottom: 2px solid #289595;
+    			}
+    		}
+		}
+	}
+}
+
+#pricing_lists {
+	background-color: #fff;
+	padding-bottom: 65px;
+	@include pc_lg_media {
+		padding-top: 220px;
+	}
+	@include phone_xxs_media { display: none; }
+	.lists_row {
+		display: flex;
+		align-items: center;
+		padding: 15px 20px;
+		.td_info_box { flex: 1.5; color: #434e5a; }
+		.td_plan_box { flex: 1; text-align: center; }
+	}
+	.striped .lists_row:nth-child(even) {
+			background-color: #f2fafc;
+	}
+	.striped {
+		.td_plan_box {
+			span.no {
+				background-color: #d7e1e9;
+			    display: inline-block;
+			    height: 2px;
+			    width: 12px;
+			}
+			.fa-check {
+				background: -webkit-linear-gradient(left, $main_green1 , $main_green2);
+    			-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+			}
+		}
+	}
+	.detail_header {
+		position: relative;
+		z-index: 5;
+		background-color: #fff;
+		left: 0; right: 0;
+		margin: auto;
+		padding: 20px;
+		border-bottom: 1px solid #e6eaef;
+		max-width: 870px;
+		@include pc_lg_media { max-width: 1140px }
+		@include pad_sm_media { max-width: 940px }
+		.td_info_box { 
+			font-size: 21px;
+		 }
+		 .plan_name {
+		 	font-family: $font_family1;
+		 	text-transform: uppercase;
+			font-weight: 600;
+			color: $main_green1;
+		 }
+		 .price {
+		 	color: #529be0;
+		 	font-weight: 600;
+		 	&.popular {
+		 		color: #30b5b5;
+		 	}
+		 }
+		 .choose_plan_btn {
+		 	background-color: $main_green1;
+		 	border-radius: 50px;
+		 	border: 2px solid $main_green1;
+		 	color: #fff;
+		 	font-size: 13px;
+		 	font-weight: 400;
+		 	width: 120px;
+		 	margin-top: 5px;
+		 	padding: 2px 0 0px;
+		 	opacity: .85;
+		 	transition: .1s;
+		 	&.free {
+				background-color: #fafafa;
+				color: $main_green1;
+				border-color: #d7e1e9;
+				font-weight: 600;
+		 	}
+		 	&:hover {
+		 		color: #fff;
+			    background-color: #0b6375;
+			    border: 2px solid #0b6375;
+			    border-bottom: 2px solid #04282f;
+			    font-weight: 400; 
+		 	}
+		 	&.popular {
+		 		background-color: #30b5b5;
+			    border-color: #30b5b5;
+			    opacity: 1;
+			    &:hover {
+			    	background-color: #31b9b9;
+				    border-color: #31b9b9;
+				    border-bottom: 2px solid #289595;
+			    }
+		 	}
+		}
+	}
+}
+
+#pricing_questions {
+	background-image: $bg_linear_dark;
+	@include phone_xxs_media { background-image: $bg_linear_light }
+	.sub_title {
+		color: #fff;
+		&:after { left: 0; }
+		@include phone_xxs_media { color: $main_green1 }
+	}
+	.qa_group {  margin-top: 25px; }
+	.question {
+		display: inline-block;
+		cursor: pointer;
+		color: #fff;
+		font-size: 20px;
+		padding-bottom: 15px;
+		@include phone_xxs_media { color: $main_green1 }
+		.toggle_icon {
+			display: inline-block;
+			margin-right: 3px;
+			text-align: center;
+			width: 23px; height: 23px;
+			font-size: 17px;
+			line-height: 23px;
+			border-radius: 50%;
+			border: 1px solid #fff;
+			opacity: .85;
+			transform: rotate(0deg);
+			transition: .1s;
+			@include phone_xxs_media { border: 1px solid $main_green1; }
+		}
+		&.active .toggle_icon {
+			color: $main_yellow;
+			border-color: $main_yellow;
+			transform: rotate(45deg);
+		}
+		&:hover .toggle_icon{
+			color: $main_yellow;
+			border-color: $main_yellow;
+		}
+
+	}
+	.answer {
+		overflow: hidden;
+		display: none;
+		color: #fff;
+		opacity: .85;
+		padding-left: 26px;
+		@include phone_xxs_media { color: #434e5a }
+		ul ,li {
+			list-style-type: square;
+		}
+		ul {  padding-left: 23px; }
+		li + li { margin-top: 5px; }
+	}
+}
+
 
 #footer {
 	padding-top: 35px;
@@ -785,3 +1230,33 @@ section {
 		opacity: 0.5;
 	}
 }
+
+#goToTop {
+	cursor: pointer;
+    position: fixed;
+    z-index: 999;
+    bottom: -80px;
+    right: 30px;
+    opacity: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: $main_green1;
+    background-color: rgba(255, 255, 255, .9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    box-shadow: 1px 1px 7px rgba(0, 0, 0, .25);
+    transition: .3s;
+    @include phone_xxs_media { right: 15px ; }
+    &.in {
+    	opacity: 1;
+    	bottom: 30px;
+    	@include phone_xxs_media { bottom: 15px ; }
+    }
+    &:hover {
+    	color: $main_yellow;
+    }
+}
+

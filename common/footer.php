@@ -45,3 +45,28 @@
 		<p class="copy_right">© 2017 6Connect Pte. Ltd. All Rights Reserved.</p>
 	</div>
 </footer>
+
+<div id="goToTop">
+	<i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+</div>
+
+<script>
+	const gotopBtn = $('#goToTop');
+	
+	$(window).scroll(() => {
+		const offset_height = 400;
+		const distance = $(window).scrollTop();
+		if (distance >= offset_height) {
+			gotopBtn.addClass('in');
+		} else {
+			gotopBtn.removeClass('in');
+		}
+	});
+
+	gotopBtn.on('click', (event) => {
+		event.preventDefault();
+		$('body, html').animate({
+			scrollTop: 0,
+		}, 700);
+	});
+</script>

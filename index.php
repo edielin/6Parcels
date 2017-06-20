@@ -5,15 +5,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>6Parcels - Courier 3.0</title>
+	<title>6Parcels - Courier 3.1</title>
 	<link rel="stylesheet" href="<?= $config['cdn_loc'] ?>style/css/owl.carousel.min.css?v=<?= $config['version'] ?>">
     <link rel="stylesheet" href="<?= $config['cdn_loc'] ?>style/css/owl.theme.default.min.css?v=<?= $config['version'] ?>">
-	<meta property="og:title" content="6Parcels - Courier 3.0" />
+	<meta property="og:title" content="6Parcels - Courier 3.1" />
 	<meta name="description" content="6Parcel is a cloud-service designed for courier companies to easily manage their business from day one.">
 	<meta property="og:description" content="6Parcel is a cloud-service designed for courier companies to easily manage their business from day one.">
     <meta name="keywords" content="courier software, dispatch software, courier solution, delivery software">
 	<meta property="fb:app_id" content="" />
-	<meta property="og:url" content="http://www.6parcels.com" />
+	<meta property="og:url" content="https://www.6parcels.com" />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="">
     <meta name="robots" content="index, follow" />
@@ -40,7 +40,7 @@
 				<div class="col-sm-5 pull-right">
 					<div class="text-right content_block">
 						<p class="name f_f1">6Parcels</p>
-						<h1 class="title f_f1">Courier System v3.0</h1>
+						<h1 class="title f_f1">Courier System v3.1</h1>
 						<p class="txt">6Parcels is a courier software provider that helps small logistics firms remain competitive against the big players</p>
 						<div class="counting_block">
 							<h2 class="counting_txt">
@@ -56,6 +56,7 @@
 		</div>
 	</section>
 
+<div id="wrapper">
 	<div id="partner_block">
 		<div class="container-fuild text-center">
 			<div class="partner_box">
@@ -157,12 +158,6 @@
 					</div>
 					<div class="item">
 						<div class="mobile_box">
-							<img src="<?= $config['cdn_loc'] ?>images/app_login.jpg?v=<? $config['version'] ?>" alt="Driver's app - Login" class="screen_shot">
-							<img src="<?= $config['cdn_loc'] ?>images/cellphone_n.png?v=<? $config['version'] ?>" alt="mobile" class="mobile">
-						</div>
-					</div>
-					<div class="item">
-						<div class="mobile_box">
 							<img src="<?= $config['cdn_loc'] ?>images/app_orders.jpg?v=<? $config['version'] ?>" alt="Driver's app - Orders" class="screen_shot">
 							<img src="<?= $config['cdn_loc'] ?>images/cellphone_n.png?v=<? $config['version'] ?>" alt="mobile" class="mobile">
 						</div>
@@ -170,12 +165,6 @@
 					<div class="item">
 						<div class="mobile_box">
 							<img src="<?= $config['cdn_loc'] ?>images/app_orderdetails_info.jpg?v=<? $config['version'] ?>" alt="Driver's app - Order detail - info" class="screen_shot">
-							<img src="<?= $config['cdn_loc'] ?>images/cellphone_n.png?v=<? $config['version'] ?>" alt="mobile" class="mobile">
-						</div>
-					</div>
-					<div class="item">
-						<div class="mobile_box">
-							<img src="<?= $config['cdn_loc'] ?>images/app_orderdetails_message.jpg?v=<? $config['version'] ?>" alt="Driver's app - Order detail - message" class="screen_shot">
 							<img src="<?= $config['cdn_loc'] ?>images/cellphone_n.png?v=<? $config['version'] ?>" alt="mobile" class="mobile">
 						</div>
 					</div>
@@ -242,12 +231,28 @@
 <?php
 	include_once('common/footer.php'); 
 ?>
+</div>
+
 
 <script src="<?= $config['cdn_loc'] ?>js/parallax.min.js?v=<? $config['version'] ?>"></script>
 <script src="<?= $config['cdn_loc'] ?>js/owl.carousel.js?v=<? $config['version'] ?>"></script>
-
+<script src="<?= $config['cdn_loc'] ?>js/inputEmailBlock.js?v=<? $config['version'] ?>"></script>
 <script>
-	$('#mobile_block').parallax({imageSrc: '<?= $config['cdn_loc'] ?>images/ryan-hefner-190738.png'});
+	
+	const wrapperTop = ($('#home_landing').innerHeight() + 80);
+	$('#wrapper').css('top', wrapperTop + 'px');
+	
+	$(window).scroll(() => {
+		const scrollDistance = $(window).scrollTop();
+		if (scrollDistance >= wrapperTop) {
+			$('#home_landing').css('opacity', '0');
+		} else {
+			$('#home_landing').css('opacity', '1');
+		}
+	});
+
+
+	$('#mobile_block').parallax({imageSrc: '<?= $config['cdn_loc'] ?>images/ryan-hefner-190738_2.png'});
 
 	$('#mobile_block .loop').owlCarousel({
 		center: true,
@@ -261,33 +266,6 @@
           }
         }
     });
-
-
-    const inputMail = document.querySelector('#guest_mail');
-	const labelFor = document.querySelector('#leave_mail_block label');
-
-	function labelchangeZ() {
-		labelFor.style.zIndex = '-1'
-	}
-
-	function checkLabel() {
-		labelFor.style.zIndex = '2';
-		if ( inputMail.value != '' ) {
-			labelFor.style.opacity = '0';
-			setTimeout(labelchangeZ, 200);
-		} else {
-			labelFor.style.opacity = '0.85';
-		}
-	}
-
-	function labelZindex() {
-		if (inputMail.value != '') {
-			labelchangeZ();
-		} else {
-			setTimeout(labelchangeZ, 200);
-		}
-	}
-
 </script>
 
 </body>
