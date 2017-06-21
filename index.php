@@ -193,20 +193,20 @@
 						<i class="fa fa-quote-left bg_icon"></i>
 						<div class="person">
 							<div class="photo">
-								<img src="<?= $config['cdn_loc'] ?>images/fake15.jpg?v=<? $config['version'] ?>" alt="Kevin Wang">
+								<img src="<?= $config['cdn_loc'] ?>images/winfredP.jpg?v=<? $config['version'] ?>" alt="Winfred Peng">
 							</div>
 							<div class="testimonials">
-								<p>" Just another good feedback. "</p>
-								<p class="name">— Kevin Wang <i>Owner of Nice Corps</i></p>
+								<p>" Magnificent user experience. "</p>
+								<p class="name">— Winfred Peng <i>Owner of Nice Corps</i></p>
 							</div>
 						</div>
 						<div class="person">
 							<div class="photo">
-								<img src="<?= $config['cdn_loc'] ?>images/fake31.jpg?v=<? $config['version'] ?>" alt="Alan Tay">
+								<img src="<?= $config['cdn_loc'] ?>images/allen.jpg?v=<? $config['version'] ?>" alt="Alan Chou">
 							</div>
 							<div class="testimonials">
 								<p>" I really love 6Parcels. I would not turn to any other company. "</p>
-								<p class="name">— Alan Tay <i>Owner of Sumoworldwide Courier Service</i></p>
+								<p class="name">— Alan Chou <i>Owner of Sumoworldwide Courier Service</i></p>
 							</div>
 						</div>
 					</div>
