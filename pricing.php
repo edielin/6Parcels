@@ -328,7 +328,12 @@
 	});
 
 
-	$('.question').click( function() {
+	$('button.choose_plan_btn').click( function() {
+		window.location.href = $(this).data('href');
+	});
+
+
+	$('.question').click(function() {
 		if ($(this).attr('class').indexOf('active') > 1) {
 			$(this).removeClass('active');
 			$(this).siblings('.answer').slideToggle(300);

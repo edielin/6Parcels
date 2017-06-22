@@ -46,7 +46,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-7">
-				<img src="<?= $config['cdn_loc'] ?>images/macbook-mock-dribbble.png?v=<?= $config['version'] ?>" alt="laptop" class="img-responsive laptop_img">
+				<img src="<?= $config['cdn_loc'] ?>images/laptop_orders.png?v=<?= $config['version'] ?>" alt="laptop" class="img-responsive laptop_img">
 			</div>
 			<div class="col-sm-5">
 				<div class="txt_block">
@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div class="col-sm-7">
-				<img src="<?= $config['cdn_loc'] ?>images/fin.png?v=<?= $config['version'] ?>" alt="laptop" class="img-responsive screenShot_img">
+				<img src="<?= $config['cdn_loc'] ?>images/screenshot33.png?v=<?= $config['version'] ?>" alt="laptop" class="img-responsive screenShot_img">
 			</div>
 		</div>
 	</div>

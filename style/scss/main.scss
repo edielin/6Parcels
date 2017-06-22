@@ -694,6 +694,7 @@ section {
 }
 
 #leave_mail_block {
+	display: none;
 	padding-bottom: 65px;
 	background-image: $bg_linear_dark; 
 	.sub_title {

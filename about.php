@@ -176,7 +176,9 @@
 		}
 	});
 
-
+	$('button.join_btn').click( function() {
+		window.location.href = $(this).data('href');
+	});
 </script>
 </body>
 </html>
